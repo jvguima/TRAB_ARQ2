@@ -1,9 +1,15 @@
-const d1 = "2024-01-01";
-const d2 = "2024-12-31";
+const dataInicio = "2024-01-01";
+const dataFim = "2024-12-31";
 
-function calcDif(d1, d2) {
-    return new Date(d2) - new Date(d1);
+function calcularDiferencaEmDias(dataInicio, dataFim) {
+    const inicio = new Date(dataInicio);
+    const fim = new Date(dataFim);
+    
+    const diferencaEmMilissegundos = fim - inicio;
+    const milissegundosPorDia = 1000 * 60 * 60 * 24;
+
+    return diferencaEmMilissegundos / milissegundosPorDia;
 }
 
-const res = calcDif(d1, d2);
-console.log(res);
+const resultado = calcularDiferencaEmDias(dataInicio, dataFim);
+console.log(`A diferença em dias é: ${resultado}`);

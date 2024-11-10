@@ -1,120 +1,137 @@
-function principal() {
+function calcularTotal() {
     const itens = [10, 20, 30, 40, 50];
     let total = 0;
-    
-    const x = 1;
-    const y = 2;
-    const z = 3;
-    
+
+    const fatorMultiplicacao = 3; // Constante para fator de multiplicação
+
+    // Calculando o total
     for (let i = 0; i < itens.length; i++) {
-        total += itens[i] * z;
+        total += itens[i] * fatorMultiplicacao;
     }
 
-    const usuario = obterUsuario(42);
+    return total;
+}
 
-    if (x === 1 && y === 2 && usuario.ativo === 1) {
+function verificarUsuarioAtivo() {
+    const usuario = obterUsuario(42);
+    const usuarioAtivo = 1;
+    const codigoEsperadoX = 1;
+    const codigoEsperadoY = 2;
+
+    // Verificando se o usuário está ativo
+    if (codigoEsperadoX === 1 && codigoEsperadoY === 2 && usuario.ativo === usuarioAtivo) {
         console.log("Usuário está ativo");
     } else {
         console.log("Usuário não está ativo");
     }
 
-    console.log("O total é:", total);
-    atualizarDados(usuario);
+    return usuario;
 }
 
 function obterUsuario(id) {
-    if (id === 42) {
-        return {
-            id: 42,
-            nome: "João Silva",
-            idade: 25,
-            ativo: 1
-        };
-    } else if (id === 43) {
-        return {
-            id: 43,
-            nome: "Maria Souza",
-            idade: 28,
-            ativo: 0
-        };
-    } else {
+    const usuarios = {
+        42: { id: 42, nome: "João Silva", idade: 25, ativo: 1 },
+        43: { id: 43, nome: "Maria Souza", idade: 28, ativo: 0 },
+    };
+
+    const usuario = usuarios[id] || null;
+
+    if (!usuario) {
         console.log("Usuário não encontrado");
-        return null;
     }
+
+    return usuario;
 }
 
-function atualizarDados(usuario) {
-    if (usuario !== null && usuario.idade > 18) {
+function atualizarUsuario(usuario) {
+    if (usuario && usuario.idade > 18) {
         console.log("Atualizando usuário:", usuario.id);
-        function salvarDados() {
-            console.log("Dados salvos com sucesso!");
-        }
+
+        // Função para simular a atualização de dados
         salvarDados();
 
-        usuario.idade += 1;
+        usuario.idade += 1; // Aumentando a idade do usuário
         console.log("Nova idade do usuário:", usuario.idade);
     }
 }
 
-function calcular(a, b, c) {
-    let d = 0;
-    if (a === 1) {
-        d = b + c;
-    } else if (a === 2) {
-        d = b * c;
-    } else if (a === 3) {
-        d = b - c;
-    } else {
-        d = b / c;
-    }
-
-    const e = d.toString().split("").reverse().join("");
-    console.log("String invertida:", e);
-    return e;
+function salvarDados() {
+    console.log("Dados salvos com sucesso!");
 }
 
-function processarDados(n) {
+function calcularOperacao(a, b, c) {
     let resultado = 0;
-    for (let i = 1; i <= n; i++) {
-        if (i % 2 === 0) {
-            resultado += i;
-        } else {
-            resultado -= i;
-        }
+
+    switch (a) {
+        case 1:
+            resultado = b + c;
+            break;
+        case 2:
+            resultado = b * c;
+            break;
+        case 3:
+            resultado = b - c;
+            break;
+        default:
+            resultado = b / c;
     }
+
+    // Invertendo e retornando o resultado
+    return resultado.toString().split("").reverse().join("");
+}
+
+function processarNumeros(n) {
+    let resultado = 0;
+
+    // Calculando a soma ou subtração de números
+    for (let i = 1; i <= n; i++) {
+        resultado += (i % 2 === 0) ? i : -i;
+    }
+
     console.log("Resultado do processamento:", resultado);
 
-    function exibirDados() {
-        const dados = ["Valor 1", "Valor 2", "Valor 3"];
-        for (let i = 0; i < dados.length; i++) {
-            console.log("Dados:", dados[i]);
-        }
-    }
+    // Função para exibir dados
     exibirDados();
 
     return resultado;
 }
 
-function funcao() {
-    const itens = [5, 7, 9, 11];
-    let x = 0;
-    for (let i = 0; i < itens.length; i++) {
-        x += itens[i] * 3;
-    }
-
-    function mostrarInfo() {
-        const valores = ["Dado 1", "Dado 2", "Dado 3"];
-        for (let j = 0; j < valores.length; j++) {
-            console.log("Info:", valores[j]);
-        }
-    }
-
-    mostrarInfo();
-    console.log("Cálculo total:", x);
-    return x;
+function exibirDados() {
+    const dados = ["Valor 1", "Valor 2", "Valor 3"];
+    dados.forEach(dado => console.log("Dados:", dado));
 }
 
-principal();
-console.log("Resultado do cálculo:", calcular(1, 2, 3));
-console.log("Resultado do processamento de dados:", processarDados(10));
-console.log("Resultado da função:", funcao());
+function calcularResultado() {
+    const itens = [5, 7, 9, 11];
+    let total = 0;
+
+    // Calculando o total com multiplicação
+    itens.forEach(item => total += item * 3);
+
+    // Exibindo informações adicionais
+    mostrarInformacoes();
+
+    console.log("Cálculo total:", total);
+    return total;
+}
+
+function mostrarInformacoes() {
+    const valores = ["Dado 1", "Dado 2", "Dado 3"];
+    valores.forEach(valor => console.log("Info:", valor));
+}
+
+// Chamando as funções
+const total = calcularTotal();
+console.log("Total calculado:", total);
+
+const usuario = verificarUsuarioAtivo();
+atualizarUsuario(usuario);
+
+const resultadoCalculo = calcularOperacao(1, 2, 3);
+console.log("Resultado do cálculo:", resultadoCalculo);
+
+const resultadoProcessamento = processarNumeros(10);
+console.log("Resultado do processamento de dados:", resultadoProcessamento);
+
+const resultadoFuncao = calcularResultado();
+console.log("Resultado da função:", resultadoFuncao);

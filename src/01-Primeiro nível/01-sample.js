@@ -1,13 +1,14 @@
-function h(a) {
-    const b = [];
-    for (let i = 0; i < a.length; i++) {
-        if (a[i] % 2 === 0) {
-            b.push(a[i]);
+// Função que filtra os números pares de um array
+function filtrarPares(array) {
+    const pares = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) {
+            pares.push(array[i]);
         }
     }
-    return b;
+    return pares;
 }
 
-const x = [1, 2, 3, 4, 5, 6];
-const y = h(x);
-console.log(y);
+const numeros = [1, 2, 3, 4, 5, 6];
+const numerosPares = filtrarPares(numeros);
+console.log(numerosPares);

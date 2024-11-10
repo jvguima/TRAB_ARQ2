@@ -1,11 +1,11 @@
-const a = "João";
-const b = "Ana";
-const c = "Carlos";
+const nome1 = "João";
+const nome2 = "Ana";
+const nome3 = "Carlos";
 
-function p() {
-    console.log(a);
-    console.log(b);
-    console.log(c);
+function imprimirNomes(nome1, nome2, nome3) {
+    console.log(nome1);
+    console.log(nome2);
+    console.log(nome3);
 }
 
-p();
+imprimirNomes(nome1, nome2, nome3);
