@@ -1,28 +1,58 @@
-function calcularSalarioFuncionario(horasTrabalhadas, valorHora, cargo) {
-    const salarioBase = horasTrabalhadas * valorHora;
+// Constantes para bônus de cargo e desconto
+const BONUS_GERENTE = 1000;
+const BONUS_SUPERVISOR = 500;
+const BONUS_OUTROS_CARGOS = 200;
+const DESCONTO_FIXO = 300;
 
-    let salarioComBonus;
-    if (cargo === "gerente") {
-        salarioComBonus = salarioBase + 1000;
-    } else if (cargo === "supervisor") {
-        salarioComBonus = salarioBase + 500;
-    } else {
-        salarioComBonus = salarioBase + 200;
+// Constantes para taxas de imposto
+const IMPOSTO_ALTO = 0.27;
+const IMPOSTO_MEDIO = 0.18;
+const IMPOSTO_BAIXO = 0.11;
+
+// Função para calcular o salário base
+function calcularSalarioBase(horasTrabalhadas, valorHora) {
+    if (typeof horasTrabalhadas !== 'number' || typeof valorHora !== 'number') {
+        throw new Error('As horas trabalhadas e o valor da hora devem ser números.');
     }
-
-    const salarioComDesconto = salarioComBonus - 300;
-
-    let salarioFinal;
-    if (salarioComDesconto > 5000) {
-        salarioFinal = salarioComDesconto - (salarioComDesconto * 0.27);
-    } else if (salarioComDesconto > 3000) {
-        salarioFinal = salarioComDesconto - (salarioComDesconto * 0.18);
-    } else {
-        salarioFinal = salarioComDesconto - (salarioComDesconto * 0.11);
+    if (horasTrabalhadas < 0 || valorHora < 0) {
+        throw new Error('As horas trabalhadas e o valor da hora devem ser maiores que zero.');
     }
-
-    return salarioFinal;
+    return horasTrabalhadas * valorHora;
 }
 
-const salario = calcularSalarioFuncionario(160, 25, "gerente");
-console.log(`O salário final é: ${salario}`);
+// Função para calcular o bônus de acordo com o cargo
+function calcularBonusCargo(cargo) {
+    switch (cargo.toLowerCase()) {
+        case "gerente":
+            return BONUS_GERENTE;
+        case "supervisor":
+            return BONUS_SUPERVISOR;
+        default:
+            return BONUS_OUTROS_CARGOS;
+    }
+}
+
+// Função para aplicar o imposto de acordo com o salário
+function aplicarImposto(salarioComDesconto) {
+    if (salarioComDesconto > 5000) {
+        return salarioComDesconto - (salarioComDesconto * IMPOSTO_ALTO);
+    } else if (salarioComDesconto > 3000) {
+        return salarioComDesconto - (salarioComDesconto * IMPOSTO_MEDIO);
+    } else {
+        return salarioComDesconto - (salarioComDesconto * IMPOSTO_BAIXO);
+    }
+}
+
+// Função principal para calcular o salário final
+function calcularSalarioFuncionario(horasTrabalhadas, valorHora, cargo) {
+    const salarioBruto = calcularSalarioBase(horasTrabalhadas, valorHora);
+    const bonusCargo = calcularBonusCargo(cargo);
+
+    const salarioComBonusCargo = salarioBruto + bonusCargo;
+    const salarioComDesconto = salarioComBonusCargo - DESCONTO_FIXO;
+    
+    // Aplica o imposto sobre o salário com os descontos
+    const salarioFinal = aplicarImposto(salarioComDesconto);
+    
+    return salarioFinal;
+}
