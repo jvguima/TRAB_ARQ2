@@ -69,11 +69,3 @@ function calcularSalarioFuncionario(horasTrabalhadas, valorHora, cargo) {
     
     return salarioFinal;
 }
-var casasDecimais = 2;
-try {
-    // Chama a função principal para calcular o salário final usando as constantes definidas
-    const salarioFinal = calcularSalarioFuncionario(HORAS_MES, VALOR_HORA_PADRAO, CARGO_FUNCIONARIO);
-    console.log(`O salário final do funcionário é: R$${salarioFinal.toFixed(casasDecimais)}`);
-} catch (erro) {
-    console.error(erro.message);
-}
