@@ -2,8 +2,8 @@ const VALOR_DO_FRETE_POR_KM = 10;
 
 function calcularValorDoFrete(distanciaKm) {
     
-    if (typeof distanciaKm !== 'number' || isNaN(distanciaKm) || distanciaKm < 0) {
-        throw new Error('A distância fornecida deve ser um número válido e maior ou igual a 0.');
+    if (typeof distanciaKm !== "number" || isNaN(distanciaKm) || distanciaKm < 0) {
+        throw new Error("A distância fornecida deve ser um número válido e maior ou igual a 0.");
     }
     
    

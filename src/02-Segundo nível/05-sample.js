@@ -26,8 +26,8 @@ function calcularSalarioBase(horasTrabalhadas, valorHora) {
 
 // Função para calcular o bônus de acordo com o cargo
 function calcularBonusCargo(cargo) {
-    if (!cargo || typeof cargo !== 'string') {
-        throw new Error('O cargo deve ser uma string válida.');
+    if (!cargo || typeof cargo !== "string") {
+        throw new Error("O cargo deve ser uma string válida.");
     }
 
     switch (cargo.toLowerCase()) {

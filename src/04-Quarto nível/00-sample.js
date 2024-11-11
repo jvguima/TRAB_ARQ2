@@ -61,3 +61,6 @@ function exibirMensagem(mensagem, tipo) {
     const mensagemDiv = document.getElementById("mensagem");
     mensagemDiv.innerHTML = `<div class="alert alert-${tipo}" role="alert">${mensagem}</div>`;
 }
+
+// Adicionando o ouvinte de evento para o botão
+document.getElementById("buscarPersonagemBtn").addEventListener("click", buscarPersonagem);

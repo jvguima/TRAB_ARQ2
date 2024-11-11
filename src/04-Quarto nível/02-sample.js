@@ -27,13 +27,21 @@ async function obterFilmePorId(id) {
 function exibirTituloFilme(titulo) {
     console.log(titulo.toUpperCase()); // Exibe o título no console em maiúsculas
     const mensagemDiv = document.getElementById("mensagem");
-    mensagemDiv.innerHTML = `<div class="alert alert-success" role="alert">Título do Filme: ${titulo.toUpperCase()}</div>`;
+
+    // Criando a mensagem de forma mais legível
+    const mensagem = `<div class="alert alert-success" role="alert">Título do Filme: ${titulo.toUpperCase()}</div>`;
+    
+    // Atribuindo a mensagem ao innerHTML
+    mensagemDiv.innerHTML = mensagem;
 }
 
 // Função para exibir mensagem de erro
 function exibirMensagemErro(mensagem) {
     const mensagemDiv = document.getElementById("mensagem");
-    mensagemDiv.innerHTML = `<div class="alert alert-danger" role="alert">${mensagem}</div>`;
+    const mensagemErro = `<div class="alert alert-danger" role="alert">${mensagem}</div>`;
+    
+    // Atribuindo a mensagem de erro ao innerHTML
+    mensagemDiv.innerHTML = mensagemErro;
 }
 
 // Chama a função para buscar o filme
