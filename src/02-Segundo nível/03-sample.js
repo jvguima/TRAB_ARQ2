@@ -9,7 +9,7 @@ function calcularValorDoFrete(distanciaKm) {
    
     return distanciaKm * VALOR_DO_FRETE_POR_KM;
 }
-
+var casasDecimais = 2;
 try {
     
     const distanciaKm = 50;
@@ -18,7 +18,7 @@ try {
     const frete = calcularValorDoFrete(distanciaKm);
     
 
-    console.log(`O valor do frete é: R$${frete.toFixed(2)}`);
+    console.log(`O valor do frete é: R$${frete.toFixed(casasDecimais)}`);
 } catch (erro) {
     
     console.error(erro.message);
