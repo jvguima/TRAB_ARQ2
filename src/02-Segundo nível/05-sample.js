@@ -4,6 +4,10 @@ const BONUS_SUPERVISOR = 500;
 const BONUS_OUTROS_CARGOS = 200;
 const DESCONTO_FIXO = 300;
 
+// Constantes para faixas de imposto
+const FAIXA_IMPOSTO_ALTO = 5000;
+const FAIXA_IMPOSTO_MEDIO = 3000;
+
 // Constantes para taxas de imposto
 const IMPOSTO_ALTO = 0.27;
 const IMPOSTO_MEDIO = 0.18;
@@ -22,6 +26,10 @@ function calcularSalarioBase(horasTrabalhadas, valorHora) {
 
 // Função para calcular o bônus de acordo com o cargo
 function calcularBonusCargo(cargo) {
+    if (!cargo || typeof cargo !== 'string') {
+        throw new Error('O cargo deve ser uma string válida.');
+    }
+
     switch (cargo.toLowerCase()) {
         case "gerente":
             return BONUS_GERENTE;
@@ -34,9 +42,9 @@ function calcularBonusCargo(cargo) {
 
 // Função para aplicar o imposto de acordo com o salário
 function aplicarImposto(salarioComDesconto) {
-    if (salarioComDesconto > 5000) {
+    if (salarioComDesconto > FAIXA_IMPOSTO_ALTO) {
         return salarioComDesconto - (salarioComDesconto * IMPOSTO_ALTO);
-    } else if (salarioComDesconto > 3000) {
+    } else if (salarioComDesconto > FAIXA_IMPOSTO_MEDIO) {
         return salarioComDesconto - (salarioComDesconto * IMPOSTO_MEDIO);
     } else {
         return salarioComDesconto - (salarioComDesconto * IMPOSTO_BAIXO);
