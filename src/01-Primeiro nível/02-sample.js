@@ -1,7 +1,7 @@
 const sistemaAtivo = true;
 
 function verificarAcesso(usuario) {
-    if (!usuario || typeof usuario.ehAdmin !== 'boolean') {
+    if (!usuario || typeof usuario.ehAdmin !== "boolean") {
         console.log("Erro: usuário inválido ou dados incorretos.");
         return;
     }

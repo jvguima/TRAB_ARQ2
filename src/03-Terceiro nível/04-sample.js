@@ -16,7 +16,7 @@ async function buscarPersonagemENave(idPersonagem) {
             }
 
             const nave = await respostaNave.json();
-            const tripulacao = parseInt(nave.crew.replace(/,/g, ''));
+            const tripulacao = parseInt(nave.crew.replace(/,/g, ""));
 
             if (!isNaN(tripulacao)) {
                 if (tripulacao > 100) {
