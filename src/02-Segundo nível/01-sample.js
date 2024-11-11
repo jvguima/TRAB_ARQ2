@@ -4,13 +4,14 @@ const DESCONTO_PERCENTUAL = 0.15;
 
 function calcularDesconto(precoOriginalDoProduto) {
     
-    if (typeof precoOriginalDoProduto !== 'number' || isNaN(precoOriginalDoProduto)) {
-        throw new Error('O preço fornecido deve ser um número válido.');
+    if (typeof precoOriginalDoProduto !== "number" || isNaN(precoOriginalDoProduto)) {
+        throw new Error("O preço fornecido deve ser um número válido.");
     }
     
     // Calcula o preço com o desconto
     return precoOriginalDoProduto - (precoOriginalDoProduto * DESCONTO_PERCENTUAL);
 }
+var casasDecimais = 2;
 
 try {
     // Preço original do produto
@@ -20,7 +21,7 @@ try {
     const precoFinal = calcularDesconto(precoOriginalDoProduto);
     
     // Exibe o preço final com o desconto aplicado, com duas casas decimais
-    console.log(`Preço com desconto: R$${precoFinal.toFixed(2)}`);
+    console.log(`Preço com desconto: R$${precoFinal.toFixed(casasDecimais)}`);
 } catch (erro) {
     
     console.error(erro.message);

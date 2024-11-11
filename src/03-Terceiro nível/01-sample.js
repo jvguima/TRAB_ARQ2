@@ -17,7 +17,7 @@ Fabricante: ${nave.manufacturer}
         console.log("Detalhes da Nave:");
         console.log(detalhesNave);
 
-        const crewStr = nave.crew.replace(/,/g, '');
+        const crewStr = nave.crew.replace(/,/g, "");
         const tamanhoTripulacao = parseInt(crewStr);
 
         if (!isNaN(tamanhoTripulacao)) {
