@@ -11,6 +11,7 @@ function calcularDesconto(precoOriginalDoProduto) {
     // Calcula o preço com o desconto
     return precoOriginalDoProduto - (precoOriginalDoProduto * DESCONTO_PERCENTUAL);
 }
+var casasDecimais = 2;
 
 try {
     // Preço original do produto
@@ -20,7 +21,7 @@ try {
     const precoFinal = calcularDesconto(precoOriginalDoProduto);
     
     // Exibe o preço final com o desconto aplicado, com duas casas decimais
-    console.log(`Preço com desconto: R$${precoFinal.toFixed(2)}`);
+    console.log(`Preço com desconto: R$${precoFinal.toFixed(casasDecimais)}`);
 } catch (erro) {
     
     console.error(erro.message);

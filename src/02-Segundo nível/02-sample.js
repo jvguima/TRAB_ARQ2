@@ -13,10 +13,10 @@ function podeDirigir(idade) {
         return "Não pode dirigir";
     }
 }
-
+var idadeDoUSUARIO = 16;
 try {
    
-    console.log(podeDirigir(16)); 
+    console.log(podeDirigir(idadeDoUSUARIO)); 
 } catch (erro) {
     
     console.error(erro.message);
