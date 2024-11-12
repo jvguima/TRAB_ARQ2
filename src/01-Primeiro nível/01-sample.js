@@ -1,3 +1,11 @@
+// Constantes para valores específicos do array
+const NUM_IMPAR_1 = 1;
+const NUM_PAR_2 = DIVISOR_PAR;
+const NUM_IMPAR_3 = 3;
+const NUM_PAR_4 = 4;
+const NUM_IMPAR_5 = 5;
+const NUM_PAR_6 = 6;
+
 // Constante para valor divisor de paridade
 const DIVISOR_PAR = 2;
 
@@ -12,7 +20,7 @@ function filtrarPares(array) {
     return pares;
 }
 
-// Array de números de exemplo
-const numeros = [1, DIVISOR_PAR, 3, 4, 5, 6];
+// Array de números de exemplo usando as constantes
+const numeros = [NUM_IMPAR_1, NUM_PAR_2, NUM_IMPAR_3, NUM_PAR_4, NUM_IMPAR_5, NUM_PAR_6];
 const numerosPares = filtrarPares(numeros);
 console.log(numerosPares);
