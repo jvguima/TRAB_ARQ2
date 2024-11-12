@@ -11,11 +11,11 @@ const IMPOSTO_BAIXO = 0.11;
 
 // Função para calcular o salário base
 function calcularSalarioBase(horasTrabalhadas, valorHora) {
-    if (typeof horasTrabalhadas !== 'number' || typeof valorHora !== 'number') {
-        throw new Error('As horas trabalhadas e o valor da hora devem ser números.');
+    if (typeof horasTrabalhadas !== "number" || typeof valorHora !== "number") {
+        throw new Error("As horas trabalhadas e o valor da hora devem ser números.");
     }
     if (horasTrabalhadas < 0 || valorHora < 0) {
-        throw new Error('As horas trabalhadas e o valor da hora devem ser maiores que zero.');
+        throw new Error("As horas trabalhadas e o valor da hora devem ser maiores que zero.");
     }
     return horasTrabalhadas * valorHora;
 }

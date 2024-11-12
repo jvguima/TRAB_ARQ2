@@ -4,8 +4,8 @@ const DESCONTO_PERCENTUAL = 0.15;
 
 function calcularDesconto(precoOriginalDoProduto) {
     
-    if (typeof precoOriginalDoProduto !== 'number' || isNaN(precoOriginalDoProduto)) {
-        throw new Error('O preço fornecido deve ser um número válido.');
+    if (typeof precoOriginalDoProduto !== "number" || isNaN(precoOriginalDoProduto)) {
+        throw new Error("O preço fornecido deve ser um número válido.");
     }
     
     // Calcula o preço com o desconto

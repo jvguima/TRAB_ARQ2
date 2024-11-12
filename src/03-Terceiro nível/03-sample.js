@@ -17,7 +17,7 @@ População: ${planeta.population}
         console.log("Detalhes do Planeta:");
         console.log(detalhesPlaneta);
 
-        const populacao = parseInt(planeta.population.replace(/,/g, ''));
+        const populacao = parseInt(planeta.population.replace(/,/g, ""));
         
         if (!isNaN(populacao)) {
             if (populacao > 1000000) {

@@ -8,7 +8,7 @@ async function buscarVeiculosECalcularCusto() {
 
         const dados = await resposta.json();
         const veiculosCaros = dados.results.filter(veiculo => {
-            const custo = parseInt(veiculo.cost_in_credits.replace(/,/g, ''));
+            const custo = parseInt(veiculo.cost_in_credits.replace(/,/g, ""));
             return !isNaN(custo) && custo > 10000;
         });
 
@@ -18,7 +18,7 @@ async function buscarVeiculosECalcularCusto() {
         });
 
         const custoTotal = veiculosCaros.reduce((total, veiculo) => {
-            const custo = parseInt(veiculo.cost_in_credits.replace(/,/g, ''));
+            const custo = parseInt(veiculo.cost_in_credits.replace(/,/g, ""));
             return !isNaN(custo) ? total + custo : total;
         }, 0);
 
